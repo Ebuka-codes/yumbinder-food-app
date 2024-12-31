@@ -1,0 +1,101 @@
+(function() {
+    const socialProviders = document.querySelector('.login__social-providers');
+    const emailForm = document.querySelector('.login__form');
+    const formClasslist = emailForm.classList;
+    const pageTitle = document.querySelector('.page-title');
+    const hiddenClass = 'is-hidden';
+    const headerMessages = {
+        login: 'Log in with email',
+        register: 'Create an account',
+        pwReset: 'Forgot password',
+        updatePw: 'Reset your password'
+    };
+
+    const updatePageTitle = () => {
+        switch (true) {
+            case formClasslist.contains('login__form--email-login'):
+                pageTitle.textContent = headerMessages.login;
+                break;
+            case formClasslist.contains('login__form--register'):
+                pageTitle.textContent = headerMessages.register;
+                break;
+            case formClasslist.contains('login__form--pw-reset'):
+                pageTitle.textContent = headerMessages.pwReset;
+                break;
+            case formClasslist.contains('login__form--update-pw'):
+                pageTitle.textContent = headerMessages.updatePw;
+                break;
+            default:
+                break;
+        }
+    };
+
+    const handleFormVisibility = () => {
+        emailForm.classList.remove(hiddenClass);
+        socialProviders.classList.add(hiddenClass);
+
+        updatePageTitle();
+
+        // Focus the username
+        const usernameInput = document.querySelector('.js-username');
+        if (usernameInput) {
+            usernameInput.focus();
+        }
+
+        // Hide the info section
+        setInfoVisibility(false);
+    }
+
+    const setInfoVisibility = (show) => {
+        const infoSection = document.querySelector('.login__info');
+        if(!infoSection) return;
+        if(show){
+            infoSection.classList.remove(hiddenClass);
+        }else{
+            infoSection.classList.add(hiddenClass);
+        }
+    }
+
+    // If the page has any invalid input fields, show form
+    const inputs = document.querySelectorAll('.input--text');
+    let showForm = false;
+    inputs.forEach((input) => {
+        if (input.getAttribute('aria-invalid')) {
+            showForm = true;
+        }
+    });
+    if (showForm) {
+        handleFormVisibility();
+    }
+
+    // On document load, show info section if form is hidden
+    document.addEventListener('DOMContentLoaded', () => {
+        setInfoVisibility(!showForm);
+    });
+
+    // Trim username input
+    const usernameInput = document.querySelector('.js-username');
+    if (usernameInput) {
+        usernameInput.addEventListener('input', () => {
+            usernameInput.value = usernameInput.value.trim();
+        });
+    }
+
+    // Trim userAttributeDisplayName input
+    const userAttributeDisplayNameInput = document.querySelector('.js-user-attribute-display-name');
+    if (userAttributeDisplayNameInput) {
+        userAttributeDisplayNameInput.addEventListener('focusout', () => {
+            userAttributeDisplayNameInput.value = userAttributeDisplayNameInput.value.trim();
+        });
+    }
+    
+    if (socialProviders) {
+        const emailLoginButton = socialProviders.querySelector('.login__button--email');
+        
+        emailLoginButton.addEventListener('click', () => {
+            if (emailForm.classList.contains(hiddenClass)) {
+                handleFormVisibility();
+            }
+        });
+    }
+}());

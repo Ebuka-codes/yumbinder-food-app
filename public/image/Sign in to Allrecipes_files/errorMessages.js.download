@@ -1,0 +1,19 @@
+(function() {
+    const inputTexts = document.querySelectorAll('.input--text');
+    
+    inputTexts.forEach((inputText) => {
+        inputText.addEventListener('keydown', (event) => {
+            const input = event.target;
+            const valid = input.getAttribute('aria-invalid');
+            if (valid) {
+                // Get closest alert message banner and hide it
+                const formGroup = input.closest('.form-group');
+                const messageBanner = formGroup?.querySelector('.carbon-alert');
+                if (messageBanner) {
+                    messageBanner.classList.add('is-hidden');
+                }
+                input.setAttribute('aria-invalid', '');
+            }
+        });
+    });
+}());
