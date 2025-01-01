@@ -10,7 +10,7 @@ const SearchResult = ({
   const [searchData, setSearchData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-
+  console.log(data);
   useEffect(() => {
     const fetchRecipeDetail = async () => {
       try {
@@ -96,7 +96,7 @@ const SearchResult = ({
             </p>
           )}
 
-          {!errorMessage && !isloading && data?.length !== 0 && (
+          {!errorMessage && !isloading && (
             <div>
               <div className="grid  grid-cols-2 md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-7 gap-5 mt-3 mb-40">
                 {searchData?.map((item: any) => (
