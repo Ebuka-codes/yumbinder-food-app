@@ -25,7 +25,7 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
   });
   return (
     <div className="w-full bg-white z-30 h-screen sticky mt-5 overflow-y-auto top-[50%]">
-      <div className="mt-10">
+      <div className="mt-10 mb-20">
         <h1 className="text-center text-[#FF550C] font-medium">My Account</h1>
         <div className="bg-slate-50  p-5 text-center text-[14px] rounded-md w-[90%] lg:w-[80%] mt-10 mx-auto">
           Protect your saved recipes
@@ -41,7 +41,7 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
             </>
           )}
           {!isLoading && (
-            <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5  w-[90%] lg:w-[80%] mx-auto mb-40">
+            <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5  w-[90%] lg:w-[80%] mx-auto">
               {data?.map((item: any) => (
                 <div className="border border-stone-300 rounded-md">
                   <Link

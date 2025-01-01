@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
@@ -11,6 +11,9 @@ const Contact = () => {
       reset();
     }
   };
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <section className="mt-10">
       <header className="bg-slate-50  px-20 py-10 w-full">

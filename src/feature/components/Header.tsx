@@ -194,7 +194,7 @@ const Header = ({
           <ul className="hidden items-center gap-10 font-medium text-sm text-stone-700 uppercase xl:flex">
             <li className=" transform duration-300 ease-in-out">
               <Link
-                className="hover:text-[#FF550C] transition duration-300 ease-in-out"
+                className="hover:text-[#f8982d] transition duration-300 ease-in-out"
                 to={'home'}
               >
                 Home
@@ -202,7 +202,7 @@ const Header = ({
             </li>
             <li className="cursor-pointer">
               <p
-                className="hover:text-[#FF550C] transition duration-300 ease-in-out"
+                className="hover:text-[#f8982d] transition duration-300 ease-in-out"
                 onClick={handleRecipe}
                 ref={recipeRef}
               >
@@ -217,7 +217,7 @@ const Header = ({
                     <Link to={`/topics/${recipe}`} key={index}>
                       <li
                         onClick={handleClick}
-                        className="py-2 hover:text-[#FF550C] transition duration-300 ease-in-out"
+                        className="py-2 hover:text-[#f8982d] transition duration-300 ease-in-out"
                       >
                         {recipe}
                       </li>
@@ -229,7 +229,7 @@ const Header = ({
             <li>
               <Link
                 to={'/about'}
-                className="hover:text-[#FF550C] transition duration-300 ease-in-out cursor-pointer"
+                className="hover:text-[#f8982d] transition duration-300 ease-in-out cursor-pointer"
               >
                 About Us
               </Link>
@@ -237,7 +237,7 @@ const Header = ({
             <li className="relative inline-block">
               <Link
                 to={'/contact'}
-                className="hover:text-[#FF550C] transition-all cursor-pointer"
+                className="hover:text-[#f8982d] transition-all cursor-pointer"
               >
                 Contact
               </Link>
@@ -245,7 +245,7 @@ const Header = ({
             <li className="relative inline-block">
               <Link
                 to={'/blog'}
-                className="hover:text-[#FF550C] transition-all cursor-pointer"
+                className="hover:text-[#f8982d] transition-all cursor-pointer"
               >
                 Blog
               </Link>
@@ -258,7 +258,7 @@ const Header = ({
                 value={searchValue}
                 placeholder="What would you like to cook?"
                 className=" hidden lg:block   bg-slate-50 outline-none rounded-[20px] p-[6px] px-3 pl-5 w-[250px] text-sm placeholder:text-sm placeholder:text-stone-500 "
-                onChange={(e) => setSearchValue(e.target.value)}
+                onChange={(e) => setSearchValue(e.target.value.trim())}
                 onKeyDown={handleKeyDown}
               />
               <button
@@ -334,7 +334,7 @@ const Header = ({
                   />
                 </svg>
                 Saved Recipes{' '}
-                <span className="text-[#FF550C]">({data?.length})</span>
+                <span className="text-[#f8982d]">({data?.length})</span>
               </li>
 
               <li className="py-2  px-3 mt-2 hover:bg-slate-50 text-[14px] cursor-pointer  transform duration-150">

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from './useLogin';
 import { useGoogleLogin } from './useGoogleLogin';
 const Login = () => {
@@ -11,6 +11,7 @@ const Login = () => {
   const { handleSubmit, register, formState, reset } = useForm();
   const { login, isLoading } = useLogin();
   const { loginWithGoogle } = useGoogleLogin();
+  const navigate = useNavigate();
   const onsubmit = ({ email, password }: any) => {
     login(
       { email, password },
@@ -26,29 +27,36 @@ const Login = () => {
   };
   useEffect(() => {
     document.title = 'Sign in - Yumbinder';
+    document.documentElement.style.overflowY = 'auto';
   });
   return (
     <section>
-      <div className="flex justify-center my-14 w-[90%] lg:w-[80%] mx-auto items-center flex-col">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        width="24"
+        className="ml-5 mt-6 block lg:hidden"
+        onClick={() => navigate('/')}
+      >
+        <path d="m12 19.875-7.85-7.85L12 4.175l1.2 1.2L7.375 11.2H19.85v1.65H7.375l5.825 5.825Z"></path>
+      </svg>
+      <div className="flex justify-center lg:my-14 mt-4  w-[95%] lg:w-[80%] mx-auto items-center flex-col">
         <span className="flex items-center gap-2">
           <img
             src="\image\logo 1.png"
             alt="logo"
-            className="w-[30px] h-[30px] object-cover"
+            className="w-[64px] h-[64px] object-cover"
           />
-          <h1 className="text-[22px] font-semibold  text-[#FF550C]">
-            Yumbinder
-          </h1>
         </span>
-        <h1 className="text-center text-[18px] my-3">
-          Enter your email and password <br />
-          below to login
+        <h1 className="text-center text-[16px] mt-5 mb-4  leading-[1.5em]">
+          Type your e-mail and password to log in <br /> or create a yumbinder
+          account
         </h1>
-        <div className="my-5  w-[90%] sm:w-[65%] md:w-[60%] lg:w-[40%]">
+        <div className="my-2 w-[90%] sm:w-[65%] md:w-[60%] lg:w-[40%]">
           <form
             action=""
             onSubmit={handleSubmit(onsubmit)}
-            className="space-y-2"
+            className="space-y-4"
             autoComplete="off"
           >
             <div className="flex flex-col">
@@ -67,7 +75,7 @@ const Login = () => {
                 })}
                 name="email"
                 autoComplete="off"
-                className="outline-none border border-stone-600 rounded-[4px] text-sm w-full py-3 px-3"
+                className="outline-none border focus:border-[#f8982d] focus:border-2 border-stone-600 rounded-[4px] text-sm w-full py-4 px-3"
               />
               <small className="text-red-500 text-[13px]">
                 {formState.errors?.email?.message as string}
@@ -95,7 +103,7 @@ const Login = () => {
                 })}
                 name="password"
                 autoComplete="new-password"
-                className="outline-none border border-stone-600 rounded-[4px] text-sm w-full py-3 px-3"
+                className="outline-none border border-stone-600 focus:border-[#f8982d] focus:border-2 rounded-[4px] text-sm w-full py-4 px-3"
               />
               <small className="text-red-500 text-[13px]">
                 {formState.errors?.password?.message as string}
@@ -103,13 +111,13 @@ const Login = () => {
             </div>
             <Link
               to={'/auth/reset'}
-              className="text-[14px] text-[#fb8f2afb] font-semibold float-right"
+              className="text-[14px] text-[#f8982d] font-semibold float-right"
             >
               Forget Password
             </Link>
             <button
               type="submit"
-              className="bg-[#FF550C]  my-5 hover:bg-[#fb8f2afb] transform duration-300 ease-in-out text-white font-semibold text-[14px] rounded-[3px] w-full mt-5 py-2"
+              className="bg-[#f8982d] my-5 text-white font-semibold text-[16px] rounded-[3px] w-full mt-5 py-3 shadow-md"
             >
               {isLoading ? 'Processing..' : 'Continue'}
             </button>
@@ -132,7 +140,7 @@ const Login = () => {
             Don't have an account?{' '}
             <Link
               to={'/auth/signup'}
-              className="font-semibold text-[#fb8f2afb] cursor-pointer"
+              className="font-semibold text-[#f8982d] cursor-pointer"
             >
               Sign Up
             </Link>

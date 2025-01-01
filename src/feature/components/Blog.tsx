@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 const Blog = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <section className="mt-10">
       <header className="bg-slate-50  px-20 py-10 w-full">

@@ -12,7 +12,7 @@ const SideBarOverlay = ({ children }: OverlayType) => {
     };
   });
   return (
-    <div className="fixed top-0 mt-12 left-0 w-full h-screen bg-[rgba(0,0,0,0.5)] z-[9999]">
+    <div className="fixed top-0 mt-12 left-0 w-full h-screen bg-[rgba(0,0,0,0.7)] z-[9999]">
       {children}
     </div>
   );

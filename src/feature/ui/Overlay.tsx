@@ -7,9 +7,9 @@ type OverlayType = {
 
 const Overlay = ({ setSearchResult, setSaveRecipe, children }: OverlayType) => {
   return (
-    <div className="bg-[rgba(0,0,0,0.6)] left-0 w-full h-screen fixed top-0 z-[9999]">
+    <div className="bg-[rgba(0,0,0,0.7)] left-0 w-full h-screen fixed top-0 z-[9999]">
       <div className="text-white flex gap-2 items-center justify-center  mt-20 font-medium">
-        <span className="bg-[hsl(0,1%,45%)] lg:hover:bg-[hsl(0,1%,45%)]  cursor-pointer duration-300 ease-in-out  rounded-md w-[100px] flex items-center gap-2 justify-center p-2">
+        <span className="bg-[hsl(0,1%,37%)] lg:hover:bg-[hsl(0,1%,45%)]  cursor-pointer duration-300 ease-in-out  rounded-md w-[100px] flex items-center gap-2 justify-center p-2">
           <p
             className="tracking-wider text-sm"
             onClick={() => {
@@ -37,5 +37,4 @@ const Overlay = ({ setSearchResult, setSaveRecipe, children }: OverlayType) => {
     </div>
   );
 };
-
 export default Overlay;

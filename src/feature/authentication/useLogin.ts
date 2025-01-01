@@ -14,7 +14,6 @@ export const useLogin = () => {
     mutationKey: ['user'],
     mutationFn: ({ email, password }: UserType) => loginUser(email, password),
     onSuccess: (user: any) => {
-      toast.success('Login successfully');
       queryClient.setQueryData(['user'], user);
       navigate('/', { replace: true });
     },

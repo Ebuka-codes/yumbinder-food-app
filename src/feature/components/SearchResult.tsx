@@ -4,13 +4,13 @@ const SearchResult = ({
   setSearchResult,
   setValue,
   value,
-  data,
+  data: data1,
   isloading,
 }: any) => {
   const [searchData, setSearchData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  console.log(data);
+
   useEffect(() => {
     const fetchRecipeDetail = async () => {
       try {
@@ -24,7 +24,7 @@ const SearchResult = ({
           setErrorMessage('Not Found');
           return;
         }
-        setSearchData(data.meals);
+        setSearchData(value === '' ? data1 : data.meals);
       } catch (error: any) {
         setErrorMessage(error.message);
       } finally {
@@ -43,14 +43,14 @@ const SearchResult = ({
           defaultValue={value}
           placeholder="search text..."
           className="w-[95%] p-2  pl-4 text-sm shadow-sm rounded-full outline-none mx-auto flex flex-col items-center justify-center border"
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value.trim())}
         />
         {value ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="size-6 text-red-600 absolute top-2 right-12 cursor-pointer "
+            className="size-6 text-red-600 absolute top-2 right-5 lg:right-12  cursor-pointer "
             onClick={() => {
               setValue('');
             }}
@@ -66,7 +66,7 @@ const SearchResult = ({
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="size-6 text-red-600 absolute top-2 right-12 cursor-pointer"
+            className="size-6 text-red-600 absolute top-2 right-5 lg:right-12 cursor-pointer"
           >
             <path
               fillRule="evenodd"
@@ -92,7 +92,7 @@ const SearchResult = ({
           )}
           {!isLoading && errorMessage && (
             <p className="text-sm text-stone-600 text-center mt-10">
-              No match found
+              {errorMessage}
             </p>
           )}
 

@@ -60,7 +60,7 @@ const Footer = () => {
                   className="text-sm  font-normal capitalize hover:text-[#FF550C] duration-300 ease-in-out"
                   key={index}
                 >
-                  <Link to={`/recipes/${recipes}`}> {recipes}</Link>
+                  <Link to={`/topics/${recipes}`}> {recipes}</Link>
                 </li>
               ))}
             </ul>

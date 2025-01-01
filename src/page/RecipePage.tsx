@@ -15,9 +15,10 @@ const RecipePage = () => {
   const { user } = useGetUser();
   const { savedRecipe, isLoading: isSaving } = useSavedRecipe();
   const { data } = useGetSavedRecipe();
-  const { data: recipe, isLoading: isLoadingRecipe } = useGetRecipeByName(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-  );
+
+  const [recipe, setRecipe] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSavedRecipes = (recipe: any) => {
     const data = {
@@ -40,9 +41,31 @@ const RecipePage = () => {
   };
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    document.title = `${query?.replaceAll('%20', ' ')} Recipe -  ${name}`;
+    document.title = `${query?.replaceAll('%20', ' ')} Recipe -  Yumbinder`;
+    const fetchRecipeDetail = async () => {
+      try {
+        setIsLoading(true);
+        setErrorMessage('');
+        const res = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+        );
+        const data = await res.json();
+        if (data.meals === null) {
+          setErrorMessage('Not Found');
+          return;
+        }
+        setRecipe(data.meals);
+      } catch (error: any) {
+        setErrorMessage(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchRecipeDetail();
   }, [query, name]);
-  if (isLoadingRecipe) return <MiniLoading />;
+
+  if (isLoading) return <MiniLoading />;
+
   return (
     <section className="mt-3 lg:mt-20">
       {/* moblie-view */}
@@ -114,21 +137,27 @@ const RecipePage = () => {
                 className="bg-[#FF550C] hover:bg-[#FF550C] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                 onClick={() => handleSavedRecipes(item)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
-                  />
-                </svg>
-                Save{' '}
+                {isLoading ? (
+                  <span className="border-[3px] border-t-white border-b-white animate-spin h-[25px] w-[25px] border-l-transparent border-r-transparent rounded-full"></span>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                      />
+                    </svg>
+                    Save{' '}
+                  </>
+                )}
               </button>
             )}
 
@@ -244,21 +273,27 @@ const RecipePage = () => {
                         className="bg-[#fb902a] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                         onClick={() => handleSavedRecipes(item)}
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="size-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
-                          />
-                        </svg>
-                        Save{' '}
+                        {isLoading ? (
+                          <span className="border-[3px] border-t-white border-b-white animate-spin h-[25px] w-[25px] border-l-transparent border-r-transparent rounded-full"></span>
+                        ) : (
+                          <>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="size-5"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                              />
+                            </svg>
+                            Save{' '}
+                          </>
+                        )}
                       </button>
                     )}
 

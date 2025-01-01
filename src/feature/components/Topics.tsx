@@ -20,7 +20,6 @@ const Topics = () => {
   };
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    console.log(name);
     const fetchRecipeDetail = async () => {
       try {
         setIsLoading(true);
@@ -44,16 +43,16 @@ const Topics = () => {
   }, [name]);
 
   return (
-    <section className="mt-14 overflow-y-hidden mb-40">
+    <section className="lg:mt-14 overflow-y-hidden mb-40">
       <div className="mt-5 w-[90%] xl:w-[85%] mx-auto overflow-y-hidden">
-        <h1 className="font-bold text-[2.2rem] text-stone-900 capitalize">
+        <h1 className="font-bold text-[24px] lg:text-[2.2rem] text-stone-900 capitalize mb-2">
           {name} Recipes
         </h1>
-        <p className="leading-10 text-[17px]">
+        <p className="lg:leading-10  text-[17px]">
           {`To get ${name} recipes like these delivered to your inbox, sign up
           for The Veggie newsletter.`}
         </p>
-        <div className="mt-10">
+        <div className="mt-6">
           <div className="border-b-2 border-stone-900 w-[100%]"></div>
           <p className="font-bold text-[14px] py-2 uppercase">
             Featured Recipe Collections

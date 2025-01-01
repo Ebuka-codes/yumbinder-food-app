@@ -42,7 +42,7 @@ const Recipe = (recipes: any) => {
       <div className=" mb-4  py-5 w-full lg:w-[85%] mx-auto relative">
         <img
           src="image/17EATrex-zlkb-master768.webp"
-          className="w-[100%] h-[300px] object-cover"
+          className="w-[100%] h-[350px] object-cover"
           alt=""
         />
         <div className="absolute top-10 ml-5  bg-white p-5 max-w-[250px] xs:max-w-[300px] ">
@@ -226,7 +226,7 @@ const Recipe = (recipes: any) => {
               <img
                 src="image/ar-sugar-cookies-threeByTwoMediumAt2X.webp"
                 alt=""
-                className="object-cover w-[100%]  h-[300px]"
+                className="object-cover w-[100%]  h-[350px]"
               />
               <div className="absolute top-10 ml-5 bg-white p-5 max-w-[250px] xs:max-w-[300px] ">
                 <span>

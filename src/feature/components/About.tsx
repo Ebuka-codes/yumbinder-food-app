@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <section className="lg:mt-20">
       <div className="w-[100%] lg:w-[95%] xl:w-[85%] mx-auto">

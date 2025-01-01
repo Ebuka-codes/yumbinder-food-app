@@ -1,6 +1,5 @@
 import {
   createUserWithEmailAndPassword,
-  GoogleAuthProvider,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -25,9 +24,8 @@ export const loginUser = async (email: string, password: string) => {
 export const googleLogin = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
-    const credential = GoogleAuthProvider.credentialFromResult(result);
+
     const user = result.user;
-    console.log(user, credential);
     return user;
   } catch (error: any) {
     throw new Error(error.message);
@@ -56,7 +54,6 @@ export const handleSignOut = async () => {
 };
 
 export const resetPassword = async (email: string) => {
-  console.log(email);
   try {
     const data = await sendPasswordResetEmail(auth, email);
     return data;
