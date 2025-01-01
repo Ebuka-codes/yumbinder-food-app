@@ -15,7 +15,7 @@ export const useGoogleLogin = () => {
     mutationFn: googleLogin,
     onSuccess: (user: any) => {
       console.log(user);
-      toast.success('User created');
+      toast.success('Login successfully');
       queryClient.setQueryData(['user'], user);
       navigate('/', { replace: true });
     },

@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section className="mt-10">
+    <section className="lg:mt-20">
       <div className="w-[100%] lg:w-[95%] xl:w-[85%] mx-auto">
         <div className="lg:mt-5 about-container">
           <div className="info-div">

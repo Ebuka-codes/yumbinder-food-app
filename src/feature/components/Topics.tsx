@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useGetRecipeByName } from '../recipe/useGetRecipeByName';
 const Topics = () => {
   const { name } = useParams();
   const [isLoadingImage, setIsLoadingImage] = useState(true);
-  const {
-    data: recipe,
-    isLoading: isLoadingRecipe,
-    isError,
-  } = useGetRecipeByName(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`
-  );
+  const [recipe, setRecipe] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const recipeData = recipe?.map((item: any) => {
+    return { ...item, time: Math.random() * 10000 };
+  });
 
   const [isHoveredId, setIsHoveredId] = useState<string>('');
   const handleMouseEnter = (id: string) => {
@@ -19,30 +18,30 @@ const Topics = () => {
   const handleMouseLeave = () => {
     setIsHoveredId('');
   };
-
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    // const fetchRecipeDetail = async () => {
-    //   try {
-    //     setIsLoading(true);
-    //     setErrorMessage('');
-    //     const res = await fetch(
-    //       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`
-    //     );
-    //     const data = await res.json();
-    //     if (data.meals === null) {
-    //       setErrorMessage('Not Found');
-    //       return;
-    //     }
-    //     setData(data.meals);
-    //   } catch (error: any) {
-    //     setErrorMessage(error.message);
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
-    // fetchRecipeDetail();
-  }, []);
+    console.log(name);
+    const fetchRecipeDetail = async () => {
+      try {
+        setIsLoading(true);
+        setErrorMessage('');
+        const res = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`
+        );
+        const data = await res.json();
+        if (data.meals === null) {
+          setErrorMessage('Not Found');
+          return;
+        }
+        setRecipe(data.meals);
+      } catch (error: any) {
+        setErrorMessage(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchRecipeDetail();
+  }, [name]);
 
   return (
     <section className="mt-14 overflow-y-hidden mb-40">
@@ -59,24 +58,24 @@ const Topics = () => {
           <p className="font-bold text-[14px] py-2 uppercase">
             Featured Recipe Collections
           </p>
-          {isLoadingRecipe && (
+          {isLoading && (
             <div className="topic-loader-container">
               <div className="topic-loader"></div>
             </div>
           )}
 
           <div className="grid grid-cols-2 mt-5 md:grid-cols-3 lg:grid-cols-4 gap-5 w-[100%]">
-            {!isLoadingRecipe &&
-              !isError &&
-              recipe?.map((item: any) => (
+            {!isLoading &&
+              !errorMessage &&
+              recipeData?.map((item: any) => (
                 <article
-                  className="cursor-pointer bg-white border border-[#e6e6e6] card h-[250px] w-full"
+                  className="cursor-pointer bg-white border border-[#e6e6e6] card h-[270px]  w-full"
                   key={item.idMeal}
                 >
                   <figure>
                     <Link
                       to={`/recipes/${encodeURIComponent(
-                        item?.strMeal.trim().replace(/\s+/g, '-')
+                        item.strMeal.trim().replace(/\s+/g, '-')
                       )}`}
                     >
                       {isLoadingImage && (
@@ -107,7 +106,7 @@ const Topics = () => {
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="size-3 text-[#fb902a]"
+                              className="size-3 text-[#FF550C]"
                             >
                               <path
                                 fillRule="evenodd"
@@ -117,15 +116,15 @@ const Topics = () => {
                             </svg>
                           ))}
                         </span>
-                        <span className="text-xs"></span>
+                        <span className="text-xs">
+                          {Math.floor(item.time).toLocaleString()}
+                        </span>
                       </Link>
                       <div className="py-1 flex items-center justify-between gap-2">
                         <Link
                           to={`/recipes/${item.strMeal}`}
                           className="text-[12px] text-stone-600"
-                        >
-                          <p>{Math.floor(2).toLocaleString()} minutes</p>
-                        </Link>
+                        ></Link>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"

@@ -1,11 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
   const { handleSubmit, register, formState, reset } = useForm();
   const { errors } = formState;
-
   const onsubmit = (data: any) => {
     if (data) {
       toast.success('Informations sent successfully!👍');
@@ -31,7 +30,7 @@ const Contact = () => {
             <input
               type="email"
               {...register('email', { required: 'Email is required' })}
-              className="border border-stone-300 rounded-md py-2  mt-2 px-3 outline-none focus:border-[#fb902a]"
+              className="border border-stone-300 rounded-md py-2  mt-2 px-3 outline-none focus:border-[#FF550C]"
             />
             <small className="text-[16px] text-red-500 py-2">
               {errors?.email?.message as string}
@@ -46,7 +45,7 @@ const Contact = () => {
               {...register('help', {
                 required: 'How can we help you is required',
               })}
-              className="border border-stone-300 rounded-md py-2 px-3 mt-2 outline-none focus:border-[#fb902a]"
+              className="border border-stone-300 rounded-md py-2 px-3 mt-2 outline-none focus:border-[#FF550C]"
             />
             <small className="text-[16px] text-red-500 py-2">
               {errors?.help?.message as string}
@@ -60,7 +59,7 @@ const Contact = () => {
               {...register('message', {
                 required: 'Message is required',
               })}
-              className="border border-stone-300 rounded-md py-2 px-3 mt-2 outline-none h-[130px] focus:border-[#fb902a]"
+              className="border border-stone-300 rounded-md py-2 px-3 mt-2 outline-none h-[130px] focus:border-[#FF550C]"
             />
             <small className="text-[16px] text-red-500 py-2">
               {errors?.message?.message as string}
@@ -68,7 +67,7 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="bg-[#fb902a] text-white font-semibold p-3 my-2 rounded-md mt-5"
+            className="bg-[#FF550C] text-white font-semibold p-3 my-2 rounded-md mt-5"
           >
             Send Message
           </button>
@@ -77,7 +76,6 @@ const Contact = () => {
           <img src="image/contact_us.webp" alt="" />
         </div>
       </div>
-      {/* <Toaster /> */}
     </section>
   );
 };

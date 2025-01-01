@@ -32,7 +32,7 @@ const Error = () => {
         <RiWifiOffFill
           style={{
             fontSize: 30,
-            color: '#ff922b',
+            color: '#FF550C',
             marginTop: '10px',
           }}
         />
@@ -43,14 +43,14 @@ const Error = () => {
       <button
         onClick={handleReload}
         style={{
-          backgroundColor: '#ff922b',
+          backgroundColor: '#FF550C',
           padding: '5px',
           color: '#ffff',
           fontSize: 16,
           fontWeight: 600,
           outline: 'none',
           width: '130px',
-          border: '1px solid #ff922b',
+          border: '1px solid #FF550C',
           margin: '15px 0px',
           cursor: 'pointer',
           borderRadius: '5px',

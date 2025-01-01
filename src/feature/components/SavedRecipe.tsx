@@ -26,7 +26,7 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
   return (
     <div className="w-full bg-white z-30 h-screen sticky mt-5 overflow-y-auto top-[50%]">
       <div className="mt-10">
-        <h1 className="text-center text-[#fb902a] font-medium">My Account</h1>
+        <h1 className="text-center text-[#FF550C] font-medium">My Account</h1>
         <div className="bg-slate-50  p-5 text-center text-[14px] rounded-md w-[90%] lg:w-[80%] mt-10 mx-auto">
           Protect your saved recipes
         </div>
@@ -59,7 +59,7 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
                     <span className="flex items-center justify-between">
                       <Link
                         to={`/recipes/${item.data.title}`}
-                        className="leading-8 hover:text-[#fb902a] duration-300 ease-in-out"
+                        className="leading-8 hover:text-[#FF550C] duration-300 ease-in-out"
                         onClick={() => setSaveRecipe(false)}
                       >
                         {item.data.title}
@@ -109,7 +109,7 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
                               fill="currentColor"
-                              className="size-3 text-[#fb902a]"
+                              className="size-3 text-[#FF550C]"
                             >
                               <path
                                 fillRule="evenodd"
@@ -119,7 +119,9 @@ const SavedRecipe = ({ setSaveRecipe }: savedRecipeType) => {
                             </svg>
                           ))}
                         </span>
-                        <p className="text-stone-500 text-sm">(5)</p>
+                        <p className="text-stone-500 text-sm">
+                          ({item.data.id / 10})
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -17,7 +17,7 @@ const SearchResult = ({
         setIsLoading(true);
         setErrorMessage('');
         const res = await fetch(
-          `https:/www.themealdb.com/api/json/v1/1/search.php?s=${value}`
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${value}`
         );
         const data = await res.json();
         if (data.meals === null) {
@@ -78,7 +78,7 @@ const SearchResult = ({
 
         <div className="mt-10 w-[95%] mx-auto relative">
           {!errorMessage && (
-            <h2 className="text-[#fb902a] font-medium text-[18px] uppercase tracking-widest">
+            <h2 className="text-[#FF550C] font-medium text-[18px] uppercase tracking-widest">
               Top Result
             </h2>
           )}
@@ -112,7 +112,9 @@ const SearchResult = ({
                       className="w-full h-[150px] object-cover rounded-[5px]"
                     />
                     <div className="mt-2">
-                      <p className="text-[16px] font-medium">{item.strMeal}</p>
+                      <p className="text-[16px] font-medium hover:text-[#FF550C] transition-all">
+                        {item.strMeal}
+                      </p>
                     </div>
                   </Link>
                 ))}

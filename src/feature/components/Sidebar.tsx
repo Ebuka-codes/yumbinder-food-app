@@ -8,7 +8,7 @@ type SidebarType = {
 
 const Sidebar = ({ setSidebarOpen, setRecipeSidebarOpen }: SidebarType) => {
   return (
-    <nav className="bg-white w-[300px] h-screen py-3 px-5 z-[20000] fixed top-[7px] mt-10  transition sidebar overflow-y-auto">
+    <nav className="bg-white w-full md:w-[300px] h-screen py-3 px-5 z-[20000] fixed top-[1px] mt-10  transition sidebar overflow-y-auto">
       <ul className="py-2 space-y-6 font-medium text-xl">
         <li>
           <NavLink to={'/'} onClick={() => setSidebarOpen(false)}>
@@ -17,7 +17,7 @@ const Sidebar = ({ setSidebarOpen, setRecipeSidebarOpen }: SidebarType) => {
         </li>
         <li>
           <span className="flex items-center justify-between">
-            <p onClick={() => setRecipeSidebarOpen(true)}>Recipe</p>
+            <p onClick={() => setRecipeSidebarOpen(true)}>Recipes</p>
 
             <span onClick={() => setRecipeSidebarOpen(true)}>
               <svg
@@ -42,7 +42,7 @@ const Sidebar = ({ setSidebarOpen, setRecipeSidebarOpen }: SidebarType) => {
         </li>
         <li>
           <NavLink to={'/contact'} onClick={() => setSidebarOpen(false)}>
-            Contact
+            Contact Us
           </NavLink>
         </li>
         <li>

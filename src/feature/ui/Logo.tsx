@@ -8,9 +8,7 @@ const Logo = () => {
         alt="logo"
         className="w-[30px] h-[30px] object-cover"
       />
-      <h1 className="text-[24px] font-semibold logo text-[#fa9b42]">
-        Yumbinder
-      </h1>
+      <h1 className="text-[22px] font-semibold   text-[#FF550C]">Yumbinder</h1>
     </Link>
   );
 };

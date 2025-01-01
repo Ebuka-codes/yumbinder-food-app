@@ -6,7 +6,7 @@ const TopicsPage = () => {
   const { name } = useParams();
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    document.title = `${name} recipes -  Spicydish`;
+    document.title = `${name} recipes -  Yumbinder`;
   });
   return <Topics />;
 };

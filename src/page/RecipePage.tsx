@@ -16,7 +16,7 @@ const RecipePage = () => {
   const { savedRecipe, isLoading: isSaving } = useSavedRecipe();
   const { data } = useGetSavedRecipe();
   const { data: recipe, isLoading: isLoadingRecipe } = useGetRecipeByName(
-    `https:/www.themealdb.com/api/json/v1/1/search.php?s=${query}`
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
   );
 
   const handleSavedRecipes = (recipe: any) => {
@@ -40,30 +40,11 @@ const RecipePage = () => {
   };
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    document.title = `${query?.replaceAll('%20', ' ')} Recipe -  Spicydish`;
-    // const fetchRecipeDetail = async () => {
-    //   try {
-    //     setIsLoading(true);
-
-    //     const res = await fetch(
-    //       `https:/www.themealdb.com/api/json/v1/1/search.php?s=${query}`
-    //     );
-    //     const data = await res.json();
-
-    //     if (data.meals === null) {
-    //       return;
-    //     }
-    //     setRecipeDetail(data.meals);
-    //   } catch (error: any) {
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
-    // fetchRecipeDetail();
-  }, [query]);
+    document.title = `${query?.replaceAll('%20', ' ')} Recipe -  ${name}`;
+  }, [query, name]);
   if (isLoadingRecipe) return <MiniLoading />;
   return (
-    <section className="mt-14">
+    <section className="mt-3 lg:mt-20">
       {/* moblie-view */}
       {recipe?.map((item: any) => (
         <div className="block lg:hidden">
@@ -96,7 +77,7 @@ const RecipePage = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="size-4 text-[#fb902a]"
+                  className="size-4 text-[#FF550C]"
                 >
                   <path
                     fillRule="evenodd"
@@ -119,7 +100,7 @@ const RecipePage = () => {
                 : item?.strInstructions.slice(0, 800) + '...'}
             </div>
             <button
-              className="mt-5 font-semibold text-sm border-b border-b-stone-700 hover:text-[#ff9d41f3] duration-300 ease-in-out mx-6 lg:mx-0"
+              className="mt-5 font-semibold text-sm border-b border-b-stone-700 hover:text-[#FF550C] duration-300 ease-in-out mx-6 lg:mx-0"
               onClick={() => setInstruction((open) => !open)}
             >
               {instruction ? 'Read Less' : 'Read More'}
@@ -130,7 +111,7 @@ const RecipePage = () => {
             {user && !data?.find((data) => data.data.id === item.idMeal) && (
               <button
                 disabled={isSaving}
-                className="bg-[#fb902a] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
+                className="bg-[#FF550C] hover:bg-[#FF550C] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                 onClick={() => handleSavedRecipes(item)}
               >
                 <svg
@@ -154,7 +135,7 @@ const RecipePage = () => {
             {user && data?.find((data) => data.data.id === item.idMeal) && (
               <button
                 disabled={true}
-                className="bg-[#fb902a] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
+                className="bg-[#FF550C] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +154,7 @@ const RecipePage = () => {
             )}
             {!user && (
               <button
-                className="bg-[#fb8f2aef] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
+                className="bg-[#FF550C] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                 onClick={() =>
                   toast.success('Login to save recipe', {
                     id: 'success',
@@ -304,7 +285,7 @@ const RecipePage = () => {
                     )}
                   {!user && (
                     <button
-                      className="bg-[#fb8f2aef] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
+                      className="bg-[#FF550C] hover:bg-[#FF550C] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                       onClick={() =>
                         toast.success('Login to save recipe', {
                           id: 'success',
@@ -361,7 +342,7 @@ const RecipePage = () => {
                   : item?.strInstructions.slice(0, 800) + '...'}
               </div>
               <button
-                className="mt-5  font-semibold text-sm border-b border-b-stone-700 hover:text-[#ff9d41f3] duration-300 ease-in-out"
+                className="mt-5  font-semibold text-sm border-b border-b-stone-700 hover:text-[#FF550C] duration-300 ease-in-out"
                 onClick={() => setInstruction((open) => !open)}
               >
                 {instruction ? 'Read Less' : 'Read More'}

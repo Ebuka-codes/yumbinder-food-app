@@ -34,7 +34,7 @@ const NewsLetter = () => {
           <h2 className="font-medium text-[24px] leading-8">
             Get Our NewsLetter
           </h2>
-          <p className="text-[12px] text-stone-500 mt-1">
+          <p className="text-[14px] text-stone-500 mt-1">
             Get recipes, tips and NYT special offers delivered straight to your
             inbox. <br /> Opt out or <Link to={'/contact'}>contact</Link> us
             anytime.
@@ -53,7 +53,7 @@ const NewsLetter = () => {
             />
             <button
               type="submit"
-              className="bg-[#ff9532cb] text-white font-semibold capitalize text-[16px] w-full rounded-[25px] lg:w-[100px] py-2  px-3 mt-2 hover:bg-[#fb8f2afb]"
+              className="bg-[#FF550C] text-white font-semibold capitalize text-[16px] w-full rounded-[25px] lg:w-[100px] py-2  px-3 mt-2 hover:bg-[#fb8f2afb]"
             >
               Sign Up
             </button>

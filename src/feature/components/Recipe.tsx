@@ -8,7 +8,7 @@ const Recipe = (recipes: any) => {
   // const min = {};
   const data = recipes.recipes;
   const recipeData = data.map((item: any) => {
-    return { ...item, time: Math.random() * 100 };
+    return { ...item, time: Math.random() * 10000 };
   });
 
   let loading = false;
@@ -122,7 +122,7 @@ const Recipe = (recipes: any) => {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="size-3 text-[#fb902a]"
+                            className="size-3 text-[#FF550C]"
                           >
                             <path
                               fillRule="evenodd"
@@ -132,7 +132,9 @@ const Recipe = (recipes: any) => {
                           </svg>
                         ))}
                       </span>
-                      <span className="text-xs"></span>
+                      <span className="text-xs">
+                        {Math.floor(item.time).toLocaleString()}
+                      </span>
                     </Link>
                     <div className="py-1 flex items-center justify-between gap-2">
                       <Link
@@ -140,9 +142,7 @@ const Recipe = (recipes: any) => {
                           item.strMeal.trim().replace(/\s+/g, '-')
                         )}`}
                         className="text-[12px] text-stone-600"
-                      >
-                        <p>{Math.floor(item.time).toLocaleString()} minutes</p>
-                      </Link>
+                      ></Link>
 
                       {user &&
                         saveReciped?.find(
@@ -242,10 +242,10 @@ const Recipe = (recipes: any) => {
             </div>
           </div>
           <div className="border-t-2  border-stone-800 w-[85%] mx-auto mt-10"></div>
-          <div className="grid gap-x-5 gap-y-2  grid-cols-2 md:grid-cols-3 lg:grid-cols-4  w-[90%] lg:w-[85%] mx-auto mt-5  mb-20">
+          <div className="grid gap-x-5 gap-y-2  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-[90%] lg:w-[85%] mx-auto mt-5  mb-20">
             {recipeData.slice(9, 13)?.map((item: Meal) => (
               <article
-                className="cursor-pointer bg-white border border-[#e6e6e6] card mt-3 w-full"
+                className="cursor-pointer bg-white border border-[#e6e6e6] card mt-3 w-full h-[280px]"
                 key={item.idMeal}
               >
                 <figure>
@@ -289,7 +289,7 @@ const Recipe = (recipes: any) => {
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="currentColor"
-                            className="size-3 text-[#fb902a]"
+                            className="size-3 text-[#FF550C]"
                           >
                             <path
                               fillRule="evenodd"
@@ -299,7 +299,9 @@ const Recipe = (recipes: any) => {
                           </svg>
                         ))}
                       </span>
-                      <span className="text-xs"></span>
+                      <span className="text-xs">
+                        {Math.floor(item.time).toLocaleString()}
+                      </span>
                     </Link>
                     <div className="py-1 flex items-center justify-between gap-2">
                       <Link
@@ -307,9 +309,7 @@ const Recipe = (recipes: any) => {
                           item.strMeal.trim().replace(/\s+/g, '-')
                         )}`}
                         className="text-[12px] text-stone-600"
-                      >
-                        <p>{Math.floor(item.time).toLocaleString()} minutes</p>
-                      </Link>
+                      ></Link>
                       {user &&
                         saveReciped?.find(
                           (reipe: any) => reipe.id === item.idMeal

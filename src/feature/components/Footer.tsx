@@ -10,7 +10,7 @@ const Footer = () => {
     'chicken',
   ];
   return (
-    <footer className="bg-stone-900 lg:px-20 px-6 w-full py-10 text-white">
+    <footer className="bg-black lg:px-20 px-6 w-full py-10 text-white">
       <section className="lg:flex gap-40 ">
         <div className="lg:w-[55%] w-full">
           <h1 className="font-semibold text-[16px] text-white">About Us</h1>
@@ -28,14 +28,14 @@ const Footer = () => {
               <h1 className=" font-semibold text-[16px] text-white">
                 Learn More
               </h1>
-              <ul className="text-sm space-y-3 mt-3">
-                <li>
+              <ul className="text-sm space-y-3 mt-3 ">
+                <li className="hover:text-[#FF550C] duration-300 ease-in-out">
                   <Link to="/about">About</Link>
                 </li>
-                <li>
+                <li className="hover:text-[#FF550C] duration-300 ease-in-out">
                   <Link to="/contact">Contact</Link>
                 </li>
-                <li>
+                <li className="hover:text-[#FF550C] duration-300 ease-in-out">
                   <Link to="/blog">Blog</Link>
                 </li>
               </ul>
@@ -56,7 +56,10 @@ const Footer = () => {
             </h1>
             <ul className="space-y-5 mt-2">
               {recipeCategory.map((recipes, index) => (
-                <li className="text-sm  font-normal capitalize" key={index}>
+                <li
+                  className="text-sm  font-normal capitalize hover:text-[#FF550C] duration-300 ease-in-out"
+                  key={index}
+                >
                   <Link to={`/recipes/${recipes}`}> {recipes}</Link>
                 </li>
               ))}

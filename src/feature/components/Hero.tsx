@@ -8,7 +8,7 @@ const Hero = () => {
   const { user } = useGetUser();
   return (
     <div>
-      <article className="hero lg:mt-20 mt-10 z-50 ">
+      <article className="hero lg:mt-20 z-50 ">
         <figure className="relative">
           <Link to={'/recipes/Chicken Enchilada Casserole'}>
             <img
@@ -24,7 +24,7 @@ const Hero = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    className="size-5 text-[#fb902a]"
+                    className="size-5 text-[#FF550C]"
                   >
                     <path
                       fillRule="evenodd"
@@ -72,7 +72,7 @@ const Hero = () => {
           </Link>
         </figure>
         <figure className="ml-5 lg:ml-0">
-          <span className="uppercase text-[#fb902a] text-[14px] font-semibold leading-2">
+          <span className="uppercase text-[#FF550C] text-[14px] font-semibold leading-2">
             Recipe of the day
           </span>
           <Link
@@ -92,7 +92,7 @@ const Hero = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="size-4 text-[#fb902a]"
+                className="size-3 text-[#FF550C]"
               >
                 <path
                   fillRule="evenodd"
@@ -101,7 +101,7 @@ const Hero = () => {
                 />
               </svg>
             ))}
-            <p className="text-sm">4,519 </p>
+            <p className="text-sm ml-1">4,519 </p>
           </span>
           <p className="text-sm">
             1 hour 15 minutes, after 3 hours' room temperature sitting

@@ -3,8 +3,7 @@ import Blog from '../feature/components/Blog';
 
 const BlogPage = () => {
   useEffect(() => {
-    window.scrollTo({ top: 0 });
-    document.title = 'Blog - Spicydish';
+    document.title = 'Blog - Yumbinder';
   });
   return <Blog />;
 };

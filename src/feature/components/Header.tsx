@@ -48,7 +48,6 @@ const Header = ({
   const handleClick = () => {
     setRecipeOpen(false);
   };
-
   const handleSubmitSearch = () => {
     if (searchValue !== '') {
       setValue(searchValue);
@@ -97,9 +96,8 @@ const Header = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen, isRecipeOpen]);
-
   return (
-    <header className="w-full bg-white fixed top-0 py-[10px] h-[55px] lg:h-[60px]  left-0 z-[9999] border-b border-b-[#dbdbdb]">
+    <header className="w-full bg-white lg:fixed lg:top-0 py-[10px] h-[55px] lg:h-[60px]  left-0 z-[9999] border-b border-t-0 border-b-[#dbdbdb]">
       <div className="w-[95%] xl:w-[85%] mx-auto mb-2">
         {/* mobile-screen */}
         <div className="flex items-center justify-between gap-5 lg:hidden">
@@ -134,7 +132,6 @@ const Header = ({
                 </svg>
               )}
             </span>
-
             <svg
               width="24"
               height="24"
@@ -157,7 +154,6 @@ const Header = ({
           <div>
             <Logo />
           </div>
-
           <div className="flex items-center gap-5">
             {user ? (
               <span ref={userIconRef}>
@@ -196,14 +192,17 @@ const Header = ({
             <Logo />
           </div>
           <ul className="hidden items-center gap-10 font-medium text-sm text-stone-700 uppercase xl:flex">
-            <li className=" transform duration-300 ease-in-out inline-block relative">
-              <Link className="nav_link" to={'home'}>
+            <li className=" transform duration-300 ease-in-out">
+              <Link
+                className="hover:text-[#FF550C] transition duration-300 ease-in-out"
+                to={'home'}
+              >
                 Home
               </Link>
             </li>
-            <li className="inline-block cursor-pointer">
+            <li className="cursor-pointer">
               <p
-                className="nav_link relative"
+                className="hover:text-[#FF550C] transition duration-300 ease-in-out"
                 onClick={handleRecipe}
                 ref={recipeRef}
               >
@@ -218,7 +217,7 @@ const Header = ({
                     <Link to={`/topics/${recipe}`} key={index}>
                       <li
                         onClick={handleClick}
-                        className="py-2 hover:text-[#fb902a] transition-all"
+                        className="py-2 hover:text-[#FF550C] transition duration-300 ease-in-out"
                       >
                         {recipe}
                       </li>
@@ -227,18 +226,27 @@ const Header = ({
                 </ul>
               )}
             </li>
-            <li className="relative inline-block">
-              <Link to={'/about'} className="nav_link">
+            <li>
+              <Link
+                to={'/about'}
+                className="hover:text-[#FF550C] transition duration-300 ease-in-out cursor-pointer"
+              >
                 About Us
               </Link>
             </li>
             <li className="relative inline-block">
-              <Link to={'/contact'} className="nav_link">
+              <Link
+                to={'/contact'}
+                className="hover:text-[#FF550C] transition-all cursor-pointer"
+              >
                 Contact
               </Link>
             </li>
             <li className="relative inline-block">
-              <Link to={'/blog'} className="nav_link">
+              <Link
+                to={'/blog'}
+                className="hover:text-[#FF550C] transition-all cursor-pointer"
+              >
                 Blog
               </Link>
             </li>
@@ -326,7 +334,7 @@ const Header = ({
                   />
                 </svg>
                 Saved Recipes{' '}
-                <span className="text-[#fb902a]">({data?.length})</span>
+                <span className="text-[#FF550C]">({data?.length})</span>
               </li>
 
               <li className="py-2  px-3 mt-2 hover:bg-slate-50 text-[14px] cursor-pointer  transform duration-150">

@@ -27,17 +27,16 @@ const Login = () => {
   useEffect(() => {
     document.title = 'Sign in - Yumbinder';
   });
-
   return (
     <section>
-      <div className="flex justify-center  absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[90%] lg:w-[80%] mx-auto items-center flex-col">
+      <div className="flex justify-center my-14 w-[90%] lg:w-[80%] mx-auto items-center flex-col">
         <span className="flex items-center gap-2">
           <img
             src="\image\logo 1.png"
             alt="logo"
             className="w-[30px] h-[30px] object-cover"
           />
-          <h1 className="text-[24px] font-semibold logo text-[#fa9b42]">
+          <h1 className="text-[22px] font-semibold  text-[#FF550C]">
             Yumbinder
           </h1>
         </span>
@@ -110,7 +109,7 @@ const Login = () => {
             </Link>
             <button
               type="submit"
-              className="bg-[#ff9532]  my-5 hover:bg-[#fb8f2afb] transform duration-300 ease-in-out text-white font-semibold text-[14px] rounded-[3px] w-full mt-5 py-2"
+              className="bg-[#FF550C]  my-5 hover:bg-[#fb8f2afb] transform duration-300 ease-in-out text-white font-semibold text-[14px] rounded-[3px] w-full mt-5 py-2"
             >
               {isLoading ? 'Processing..' : 'Continue'}
             </button>
