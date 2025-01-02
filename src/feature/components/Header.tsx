@@ -64,6 +64,7 @@ const Header = ({
   };
   const handleToggleUser = () => {
     setOpen((prev) => !prev);
+    console.log(isOpen);
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -156,13 +157,12 @@ const Header = ({
           </div>
           <div className="flex items-center gap-5">
             {user ? (
-              <span ref={userIconRef}>
+              <span onClick={handleToggleUser}>
                 <svg
                   width="24"
                   height="24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  onClick={handleToggleUser}
                 >
                   <path
                     d="M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM18.998 16.571A1.06 1.06 0 0 0 19 16.5c0-1.38-3.686-3-7-3s-7 1.62-7 3c0 .024 0 .048.002.071H5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.429h-.002Z"
