@@ -30,7 +30,7 @@ const RecipeSidebar = ({
           </svg>
           Recipes
         </h1>
-        <ul className="text-sm space-y-4 font-medium ml-4">
+        <ul className="text-[15px] space-y-4 font-medium ml-4">
           {recipeCategory.map((recipe, index) => (
             <Link
               to={`/topics/${recipe}`}

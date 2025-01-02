@@ -32,7 +32,7 @@ const SearchResult = ({
       }
     };
     fetchRecipeDetail();
-  }, [value]);
+  }, [value, data1]);
 
   return (
     <div className="w-full bg-white z-30 h-screen sticky mt-5 overflow-y-auto top-[50%]">
@@ -98,7 +98,7 @@ const SearchResult = ({
 
           {!errorMessage && !isloading && (
             <div>
-              <div className="grid  grid-cols-2 md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-7 gap-5 mt-3 mb-40">
+              <div className="grid  grid-cols-2 md:grid-cols-4  lg:grid-cols-5 xl:grid-cols-7 gap-5 mt-3 mb-60">
                 {searchData?.map((item: any) => (
                   <Link
                     to={`/recipes/${encodeURIComponent(

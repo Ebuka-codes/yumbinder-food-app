@@ -137,7 +137,7 @@ const RecipePage = () => {
                 className="bg-[#FF550C] hover:bg-[#FF550C] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                 onClick={() => handleSavedRecipes(item)}
               >
-                {isLoading ? (
+                {isSaving ? (
                   <span className="border-[3px] border-t-white border-b-white animate-spin h-[25px] w-[25px] border-l-transparent border-r-transparent rounded-full"></span>
                 ) : (
                   <>
@@ -273,7 +273,7 @@ const RecipePage = () => {
                         className="bg-[#fb902a] hover:bg-[#ff9d41f3] duration-300 ease-in-out text-white font-medium text-[16px] flex items-center gap-1 justify-center mt-4 rounded-full px-3 py-2 w-[100px]"
                         onClick={() => handleSavedRecipes(item)}
                       >
-                        {isLoading ? (
+                        {isSaving ? (
                           <span className="border-[3px] border-t-white border-b-white animate-spin h-[25px] w-[25px] border-l-transparent border-r-transparent rounded-full"></span>
                         ) : (
                           <>

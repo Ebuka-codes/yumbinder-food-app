@@ -10,12 +10,6 @@
   box-sizing: border-box;
 }
 
-html {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  overscroll-behavior: none;
-}
-
 body {
   overflow-y: visible;
   font-family: 'Inter', serif;
