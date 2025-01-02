@@ -53,7 +53,7 @@ const NewsLetter = () => {
             />
             <button
               type="submit"
-              className="bg-[#FF550C] text-white font-semibold capitalize text-[16px] w-full rounded-[25px] lg:w-[100px] py-2  px-3 mt-2 hover:bg-[#fb8f2afb]"
+              className="bg-[#FF550C] text-white font-semibold capitalize text-[16px] w-full rounded-[25px] lg:w-[100px] py-2  px-3 mt-2"
             >
               Sign Up
             </button>
