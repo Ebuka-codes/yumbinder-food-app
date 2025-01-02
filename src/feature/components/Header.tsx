@@ -305,7 +305,7 @@ const Header = ({
         </nav>
         {user && isOpen && (
           <div
-            className="bg-white shadow-md border border-stone-200 py-5 rounded-md absolute  top-[54px] lg:top-[60px] right-3 z-[9999]"
+            className="bg-white shadow-lg border border-stone-200 py-5 rounded-md absolute  top-[54px] lg:top-[60px] right-3 z-[9999]"
             ref={dropdownRef}
           >
             <ul>

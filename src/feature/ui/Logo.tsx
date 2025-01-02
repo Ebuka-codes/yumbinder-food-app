@@ -6,9 +6,9 @@ const Logo = () => {
       <img
         src="\image\logo 1.png"
         alt="logo"
-        className="w-[35px] h-[35px] object-cover"
+        className="w-[30px] h-[30px] object-cover"
       />
-      <h1 className="text-[20px] font-bold logo   text-[#f8982d]">Yumbinder</h1>
+      <h1 className="text-[20px]  logo  text-black">Yumbinder</h1>
     </Link>
   );
 };
