@@ -64,21 +64,21 @@ const Login = () => {
                 Email Address
               </label>
               <input
-                type="email"
+                type="text"
                 disabled={isLoading}
-                {...register('email', {
+                {...register('username', {
                   required: 'Email field is required',
                   pattern: {
                     value: emailRegex,
                     message: 'Please enter a valid email address',
                   },
                 })}
-                name="email"
-                autoComplete="off"
+                name="username"
+                autoComplete="new-email"
                 className="outline-none border focus:border-[#f8982d] focus:border-2 border-stone-600 rounded-[4px] text-sm w-full py-4 px-3"
               />
               <small className="text-red-500 text-[13px]">
-                {formState.errors?.email?.message as string}
+                {formState.errors?.username?.message as string}
               </small>
             </div>
 
@@ -89,7 +89,7 @@ const Login = () => {
               <input
                 type="password"
                 disabled={isLoading}
-                {...register('password', {
+                {...register('user_password', {
                   required: 'Password field is required',
                   minLength: {
                     value: 8,
@@ -101,12 +101,12 @@ const Login = () => {
                       'Must contain at least one uppercase letter, one lowercase letter, one number, and one special character',
                   },
                 })}
-                name="password"
+                name="user_password"
                 autoComplete="new-password"
                 className="outline-none border border-stone-600 focus:border-[#f8982d] focus:border-2 rounded-[4px] text-sm w-full py-4 px-3"
               />
               <small className="text-red-500 text-[13px]">
-                {formState.errors?.password?.message as string}
+                {formState.errors?.user_password?.message as string}
               </small>
             </div>
             <Link

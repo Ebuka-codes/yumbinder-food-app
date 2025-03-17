@@ -68,7 +68,8 @@ const Footer = () => {
         </div>
       </section>
       <p className=" text-[12px] text-white mt-7 lg:mt-0">
-        Copyright &copy; 2022 Yumbinder. All rights reserved.
+        Copyright &copy; {new Date().getFullYear()} Yumbinder. All rights
+        reserved.
       </p>
     </footer>
   );
